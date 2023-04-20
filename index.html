@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedin</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="flex-column align-items-center justify-content-center bg-white" id="splash-screen">
+        <img src="/assets/linkedin.svg" alt="" height="42px" width="168px">
+        <div class="mt-2" id="splash-screen-loader">
+        </div>
+    </div>
+
+
+    <header>
+        <div class="container-fluid bg-white border border-bottom-1 px-4 py-1">
+            <div class="d-flex justify-content-center justify-content-md-start justify-content-lg-between header-container gap-3">
+                <div class="d-flex align-items-center position-relative">
+                    <a class="" href="#">
+                        <img src="/assets/icon.svg" alt="logo" /></a>
+                    <input class="d-none d-lg-block input-search " id="input-search" type="text" placeholder="Search"
+                        autocomplete="off" />
+                    <div class="bg-white border boredr-1 p-2 rounded position-absolute search-suggestions"
+                            id="search-suggestions">
+                            <p>Try searching for</p>
+                            <p class="search-hits">#hiring</p>
+                            <p class="search-hits">#jobadvice</p>
+                            <p class="search-hits">covid-19</p>
+                            <p class="search-hits">great resignation</p>
+                        </div>
+                </div>
+
+                <!-- search -->
+                <div class="d-inline-flex align-items-center header-container-right gap-4">
+                    <div class="text-center text-muted d-lg-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16"
+                            fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                            <path
+                                d="M14.56 12.44L11.3 9.18a5.51 5.51 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-lg-none d-none d-md-block">Search</p>
+                    </div>
+
+                    <!-- home -->
+                    <div class="text-center border-bottom border-3 border-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">Home</p>
+                    </div>
+
+                    <div class="text-center text-muted hover-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path
+                                d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">My&nbsp;Network</p>
+                    </div>
+
+                    <div class="text-center text-muted hover-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path
+                                d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">Jobs</p>
+                    </div>
+
+                    <div class="text-center text-muted hover-dark position-relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path
+                                d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">Messaging</p>
+                        <p class="position-absolute notification-count">1</p>
+                    </div>
+
+                    <div class="text-center text-muted hover-dark position-relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path
+                                d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">Notifications</p>
+                        <p class="position-absolute notification-count">14</p>
+                    </div>
+
+                    <div class="text-center text-muted hover-dark d-none d-sm-block">
+                        <img class="rounded-circle" src="/assets/profile-pic.jpg" width="24" height="24" />
+                        <p class="h6 text-thin d-none d-md-block">Me</p>
+                    </div>
+
+                    <!-- more -->
+                    <div class="text-center text-muted d-block d-sm-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="#808080" class="mercado-match" width="24" height="24" focusable="false">
+                            <path
+                                d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">More</p>
+                    </div>
+
+                    <div class="v-line bg-dark-subtle d-none d-sm-block"></div>
+
+                    <div class="text-center text-muted d-none d-sm-block hover-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                            fill="currentColor" width="24" height="24">
+                            <path
+                                d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z">
+                            </path>
+                        </svg>
+                        <p class="h6 text-thin d-none d-md-block">Work</p>
+                    </div>
+
+                    <a class="try-premium-link text-center text-warning-emphasis d-none d-sm-block"
+                        href="#">Try&nbsp;premium for free</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-12 col-md-4 col-lg-3">
+
+                <div class="border rounded-3 bg-white pb-3 position-relative">
+                    <img class="position-absolute profile-pic-bg rounded-top-3" src="/assets/bg1.svg" alt="">
+                    <div class="text-center ps-2 pe-2">
+                        <img class="rounded-circle mt-4 border border-white border-3 position-relative"
+                            src="/assets/profile-pic.jpg" width="72px" height="72px" />
+                        <p class="fw-medium fs-6 mt-4">Kannan V G</p>
+                        <p class="text-muted mt-3">Electrical Engineer at Hailstone Innovations Pvt. Ltd</p>
+                    </div>
+                    <hr>
+
+                    <div class="ps-2 pe-2">
+                        <div class="d-flex justify-content-between">
+                            <p class="text-muted fw-bold">Connections</p>
+                            <p class="text-primary fw-bold">45</p>
+                        </div>
+                        <p class="fw-bold">Grow your network</p>
+                    </div>
+                    <hr>
+
+                    <div class="ps-2 pe-2">
+                        <p class="text-muted fw-bold">Access exclusive tools & insights</p>
+                        <div class="d-flex align-items-center gap-1">
+                            <img src="/assets/premium.svg" alt="" width="16px" height="16px">
+                            <p class="fw-bold">Try Premium for free</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="d-flex align-items-center gap-1 ps-2 pe-2">
+                        <img src="/assets/bookmark.svg" alt="" width="16px" height="16px">
+                        <p class="fw-bold">My items</p>
+                    </div>
+                </div>
+
+                <div class="border rounded-3 bg-white pb-2 mt-2">
+                    <div class="pt-2">
+                        <p class="text-primary fw-bold ps-2 pe-2 pt-2">Groups</p>
+                        <div class="d-flex justify-content-between ps-2 pe-2  pt-2">
+                            <p class="text-primary fw-bold">Events</p>
+                            <img src="/assets/plus.svg" width="14px" height="14px" />
+                        </div>
+                        <p class="text-primary fw-bold ps-2 pe-2  pt-2">Followed Hashtags</p>
+                        <hr>
+                        <p class="text-muted fw-bold ps-2 pe-2 pb-2 text-center">Discover more</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-7 col-lg-6">
+                <div class="border rounded-3 bg-white p-3">
+                    <div class="d-flex">
+                        <img class="rounded-circle" src="/assets/profile-pic.jpg" width="40px" height="40px" />
+                        <input class="ms-2 p-2 rounded-pill flex-grow-1 border border-1 bg-light" type="text"
+                            placeholder="Start a post" />
+                    </div>
+                    <div class="d-flex text-muted justify-content-around mt-3">
+                        <div>
+                            <img src="/assets/photo.svg" alt="">
+                            <p class="d-inline">Photo</p>
+                        </div>
+                        <div>
+                            <img src="/assets/video.svg" alt="">
+                            <p class="d-inline">Video</p>
+                        </div>
+                        <div>
+                            <img src="/assets/event.svg" alt="">
+                            <p class="d-inline">Event</p>
+                        </div>
+                        <div>
+                            <img src="/assets/write_article.svg" alt="">
+                            <p class="d-inline">Write article</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-2 border rounded-3 bg-white p-3">
+                    <div class="d-flex align-items-start">
+                        <img class="border border-1" src="/assets/1603791519032.jpg" width="60px" height="60px" />
+                        <div class="flex-grow-1 ms-2 text-thin">
+                            <p class="h6">GeeksGod</p>
+                            <p>214,170 followers</p>
+                            <p>2w &bull; <img class="globe" src="/assets/globe.svg"></p>
+                        </div>
+                        <img class="three-dot" src="/assets/3_dot.svg">
+                    </div>
+                    <img class="w-100" src="/assets/1680069540617.jpg" alt="">
+                    <div class="d-flex ps-2 pe-2 mt-1">
+                        <div class="d-flex mt-1">
+                            <img src="https://static.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt" width="14px"
+                                height="14px" />
+                            <img class="ms--3" src="https://static.licdn.com/sc/h/b1dl5jk88euc7e9ri50xy5qo8"
+                                width="14px" height="14px" />
+                            <img class="ms--3" src="https://static.licdn.com/sc/h/cpho5fghnpme8epox8rdcds22"
+                                width="14px" height="14px" />
+                        </div>
+                        <div class="d-flex justify-content-between flex-grow-1 ms-2">
+                            <p class="text-thin">Dileep Krishnadas K and 1,309 others</p>
+                            <p class="text-thin">11 comments &bull; 16 reposts</p>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <div class="d-flex gap-2">
+                            <img src="/assets/like.svg" alt="like button" width="22px" height="22px">
+                            <p class="text-thin">Like</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <img src="/assets/comment.svg" alt="like button" width="22px" height="22px">
+                            <p class="text-thin">Comment</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <img src="/assets/repost.svg" alt="like button" width="22px" height="22px">
+                            <p class="text-thin">Repost</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <img src="/assets/send.svg" alt="like button" width="22px" height="22px">
+                            <p class="text-thin">Send</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-2 border rounded-3 bg-white p-3 pe-0 mb-5">
+                    <p class="fw-bold mb-2">Jobs recommended for you</p>
+                    <div class="d-flex gap-2 overflow-hidden">
+                        <div class="border rounded-3 bg-white p-2 pe-5">
+                            <div class="d-flex flex-column">
+                                <img class="border border-1" src="/assets/jobs1.jpg" width="90px" height="90px" />
+                                <p class="fw-bold m-0 mt-2">1.Backend&nbsp;Developer</p>
+                                <p class="fw-bold m-0 mt-2">IBM</p>
+                                <p class="m-0 mt-2">Kochi, Kerala, India</p>
+                                <div class="flex-grow-1"></div>
+                                <hr class="w-50 m-0 mt-5">
+                                <p>1 day ago</p>
+                            </div>
+                        </div>
+
+                        <div class="border rounded-3 bg-white p-2 pe-4">
+                            <div class="d-flex flex-column">
+                                <img class="border border-1" src="/assets/jobs2.jpg" width="90px" height="90px" />
+                                <p class="fw-bold m-0 mt-2">Customer&nbsp;support&nbsp;Repres...</p>
+                                <p class="fw-bold m-0 mt-2">IBM</p>
+                                <p class="m-0 mt-2">Kochi, Kerala, India</p>
+                                <div class="flex-grow-1"></div>
+                                <hr class="w-50 m-0 mt-5">
+                                <p>2 days ago</p>
+                            </div>
+                        </div>
+
+                        <div class="border rounded-3 bg-white p-2 pe-5">
+                            <div class="d-flex flex-column">
+                                <img class="border border-1" src="/assets/jobs3.jpg" width="90px" height="90px" />
+                                <p class="fw-bold m-0 mt-2">Electrical&nbsp;Documentation&nbsp;Engineer</p>
+                                <p class="fw-bold m-0 mt-2">CareLabs</p>
+                                <p class="m-0 mt-2">Thrissue, Kerala, India</p>
+                                <div class="flex-grow-1"></div>
+                                <hr class="w-50 m-0 mt-5">
+                                <p>2 weeks ago</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="me-3">
+                    <div class="d-flex align-items-center gap-2 justify-content-center">
+                        <p class="text-muted fw-bold">Show more</p>
+                        <img class="" src="/assets/arrow2.svg" />
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="news-section">
+                    <div class="bg-white border rounded-3 p-2">
+                        <p class="fw-bold fs-6">Linkedin News</p>
+                        <ul>
+                            <li class="fw-bold">Top newsletters to follow</li>
+                            <dl class="text-muted">Top news &bull; 710 readers</dl>
+                            <li class="fw-bold">What a weakening rupee means</li>
+                            <dl class="text-muted">3d ago &bull; 2,152 readers</dl>
+                            <li class="fw-bold">Smart TVs dominate market</li>
+                            <dl class="text-muted">2d ago &bull; 320 readers</dl>
+                            <li class="fw-bold">More shopperes eye premium pro...</li>
+                            <dl class="text-muted">3d ago &bull; 478 readers</dl>
+                            <li class="fw-bold">New funds for SaaS and consume...</li>
+                            <dl class="text-muted">2d ago &bull; 2,140 readers</dl>
+                        </ul>
+                        <p class="show-more text-muted fs-6 fw-bold ms-3">Show more</p>
+                    </div>
+
+                    <div>
+                        <ul class="list-unstyled d-flex flex-wrap gap-2 justify-content-center mt-3 text-muted">
+                            <li>About</li>
+                            <li>Accessibility</li>
+                            <li>Help&nbsp;Center</li>
+                            <li>Privacy&nbsp;&&nbsp;Terms </li>
+                            <li>Ad&nbsp;Choices</li>
+                            <li>Advertising</li>
+                            <li>Business&nbsp;Services </li>
+                            <li>Get&nbsp;the&nbsp;LinkedIn&nbsp;app</li>
+                            <li>More</li>
+                        </ul>
+                        <div class="text-center">
+                            <img src="/assets/linkedin.svg" />
+                            <p class="d-inline ms-1">LinkedIn Corporation © 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="messaging-window bg-white rounded border border-1 pb-5 d-none d-sm-block" id="messaging-window">
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+                <div class="position-relative">
+                    <img class="rounded-circle" src="/assets/profile-pic.jpg" width="32px" height="32px" />
+                    <div class="green-dot"></div>
+                </div>
+                <p class="fw-bold">Messaging</p>
+            </div>
+            <div class="d-flex gap-3 pe-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="msg-window-right-icons" viewBox="0 0 16 16">
+                    <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="msg-window-right-icons" width="16" height="16" focusable="false">
+                    <path
+                        d="M15 2.53a1.51 1.51 0 01-.44 1L9.15 9 6 10l1-3.12 5.44-5.44A1.5 1.5 0 0115 2.53zM12 11a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1h3V2H5a3 3 0 00-3 3v6a3 3 0 003 3h6a3 3 0 003-3V8h-2z">
+                    </path>
+                </svg>
+                <svg id="messaging-window-expand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                    fill="currentColor" class="msg-window-right-icons" width="16" height="16">
+                    <path d="M15 11L8 6.39 1 11V8.61L8 4l7 4.61z"></path>
+                </svg>
+            </div>
+        </div>
+        <hr class="mt-0 mb-1">
+        <div class="d-flex me-1">
+            <input class="input-search w-100" type="text" placeholder="Search messages" autocomplete="off" />
+        </div>
+        <div class="d-flex justify-content-around border-bottom">
+            <p class="border-2 border-bottom border-success text-success p-2 flex-grow-1 text-center">Focused</p>
+            <p class="p-2 flex-grow-1 text-center">Other</p>
+        </div>
+        <div class="d-flex p-2 gap-1 align-items-start">
+            <img class="rounded-circle" src="/assets/d4929c8c88bd1e6ade0b5a4d3db62d13.jpg" width="55px" height="55px">
+            <div class="d-flex border-1 border-bottom">
+                <div class="">
+                    <p class="fw-bold">Mahesh</p>
+                    <p class="text-small">Hi Kannan, We believe that you are looking to</p>
+                </div>
+                <p>Mar&nbsp;12</p>
+            </div>
+        </div>
+        <div class="d-flex p-2 gap-1 align-items-start">
+            <img class="rounded-circle" src="/assets/1611415649247.jpg" width="55px" height="55px">
+            <div class="d-flex border-1 border-bottom">
+                <div class="">
+                    <p class="fw-bold">Stuti Dixit</p>
+                    <p class="text-small"><span class="fw-bold">Sponsered</span> We have curated a PG Program in
+                        Electric Vehicles</p>
+                </div>
+                <p>Mar&nbsp;12</p>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
